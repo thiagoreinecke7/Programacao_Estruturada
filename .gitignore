@@ -1,0 +1,45 @@
+# Compilados
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
+
+# Arquivos de depuração
+*.gch
+*.pch
+*.log
+
+# Arquivos temporários do sistema
+*~
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Arquivos de diretórios de build
+/build/
+/bin/
+/debug/
+/release/
+
+# Arquivos do Code::Blocks
+*.depend
+*.layout
+
+# Arquivos do Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Arquivos do CLion
+.idea/
+cmake-build-*/
+
+# Arquivos Make gerados
+Makefile
+makefile
+
+# Outros
+tags
