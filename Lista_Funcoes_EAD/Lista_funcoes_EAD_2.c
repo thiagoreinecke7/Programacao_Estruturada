@@ -2,16 +2,28 @@
 
 //Atividade 2
 
-float media(float notas1, float notas2, float notas3){
-    float med3 = 0;
-    int contador = 3;
+float Media(float notas1, float notas2, float notas3){
+    int soma = 0;
+    int contador = 0;
 
-    if(notas1 < 0 || notas2 < 0 || notas3 < 0){
+    if (notas1 >= 0) {
+        soma += notas1;
+        contador++;
+    }
+    if (notas2 >= 0) {
+        soma += notas2;
+        contador++;
+    }
+    if (notas3 >= 0) {
+        soma += notas3;
+        contador++;
+    }
 
+    if (contador == 0) {
+        return 0;
     }
-    else{
-        return med3 = (notas1 + notas2 + notas3) / 3;
-    }
+
+    return (float)soma / contador;
 }
 
 int maior(int a, int b){
@@ -26,28 +38,43 @@ int maior(int a, int b){
 
 int main()
 {
-    int A;
-    float notas[3];
+    int nota1, nota2, nota3;
+    float media3, media2;
 
-    for(int i = 0; i < 3; i++){
+    printf("Informe a primeira nota: ");
+    scanf("%d", &nota1);
 
-        printf("Digite o a %dª nota: ", i + 1);
-        scanf("%f", &notas[i]);
+    printf("Informe a segunda nota: ");
+    scanf("%d", &nota2);
+
+    printf("Informe a terceira nota: ");
+    scanf("%d", &nota3);
+
+    media3 = Media(nota1, nota2, nota3);
+
+    int maior1, maior2;
+
+    if (nota1 >= nota2 && nota1 >= nota3) {
+        maior1 = nota1;
+        maior2 = maior(nota2, nota3);
+    } else if (nota2 >= nota1 && nota2 >= nota3) {
+        maior1 = nota2;
+        maior2 = maior(nota1, nota3);
+    } else {
+        maior1 = nota3;
+        maior2 = maior(nota1, nota2);
     }
 
-    for(int i = 0; i < 3; i++){
-        for(int n = 0; n < 2; n++){
-            if(notas[n] > notas[n + 1]){
-                A = notas[n];
-                notas[n] = notas[n + 1];
-                notas[n + 1] = A;
-            }
-        }
+    media2 = Media(maior1, maior2, -1);
+
+    printf("\nMédia usando as três notas: %.2f\n", media3);
+    printf("Média usando as duas maiores notas: %.2f\n", media2);
+
+    if (media3 > media2) {
+        printf("A maior média é: %.2f\n", media3);
+    } else {
+        printf("A maior média é: %.2f\n", media2);
     }
-
-
-    printf("\nA média é com 3 notas é: %.2f", media(notas[0], notas[1], notas[2]));
-
 
     return 0;
 }
